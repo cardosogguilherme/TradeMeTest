@@ -23,10 +23,10 @@ import com.myrium.trademeapp.ui.theme.getTradeMeColors
 @Composable
 fun PlaceholderScreen(modifier: Modifier = Modifier, text: String) {
     Column(
-        modifier = modifier
+        modifier = Modifier
             .fillMaxSize()
             .background(getTradeMeColors().feijoa500)
-            .padding(16.dp),
+            .then(modifier),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
@@ -39,6 +39,7 @@ fun PlaceholderScreen(modifier: Modifier = Modifier, text: String) {
         )
 
         Text(
+            modifier = Modifier.padding(16.dp),
             text = "You navigated to $text",
             fontSize = 24.sp,
             fontWeight = FontWeight.Bold,

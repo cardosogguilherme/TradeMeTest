@@ -15,6 +15,8 @@ import androidx.compose.foundation.layout.requiredHeightIn
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Text
@@ -93,7 +95,16 @@ fun LatestListingScreen(
             }
         }
         is LatestListingState.Error -> {
-            PlaceholderScreen(modifier = modifier, text = "Error loading listings. Pull to refresh.")
+            PullToRefreshBox(
+                isRefreshing = false,
+                onRefresh = onRefresh,
+                modifier = modifier,
+            ) {
+                PlaceholderScreen(
+                    modifier = modifier.verticalScroll(rememberScrollState()),
+                    text = "Error loading listings. Pull to refresh."
+                )
+            }
         }
         is LatestListingState.Success -> {
             PullToRefreshBox(
