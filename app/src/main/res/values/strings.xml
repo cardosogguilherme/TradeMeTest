@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">TradeMeApp</string>
+    <string name="search_hint">Search for items...</string>
+    <string name="no_results">No results found.</string>
+    <string name="error_message">An error occurred. Please try again.</string>
+    <string name="price_format">$%1$s</string>
+    <string name="reserve_not_met">Reserve not met</string>
+    <string name="reserve_met">Reserve met</string>
+    <string name="buy_now">Buy Now</string>
+</resources>

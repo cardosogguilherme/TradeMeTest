@@ -1,0 +1,295 @@
+{
+  "listings": [
+    {
+      "imageUrl": "https://images.trademe.co.nz/electronics-1.jpg",
+      "region": "Auckland",
+      "title": "Samsung 65\" 4K Smart TV",
+      "prices": {
+        "isClassified": false,
+        "currentPrice": 1299.99,
+        "buyNowPrice": 1499.99
+      }
+    },
+    {
+      "imageUrl": "https://images.trademe.co.nz/furniture-1.jpg",
+      "region": "Wellington",
+      "title": "Vintage Oak Dining Table Set",
+      "prices": {
+        "isClassified": false,
+        "currentPrice": 450.00,
+        "buyNowPrice": 550.00
+      }
+    },
+    {
+      "imageUrl": "https://images.trademe.co.nz/sports-1.jpg",
+      "region": "Christchurch",
+      "title": "Mountain Bike Trek X-Caliber",
+      "prices": {
+        "isClassified": true,
+        "currentPrice": 850.00
+      }
+    },
+    {
+      "imageUrl": "https://images.trademe.co.nz/books-1.jpg",
+      "region": "Dunedin",
+      "title": "Rare First Edition Harry Potter Collection",
+      "prices": {
+        "isClassified": false,
+        "currentPrice": 350.00,
+        "buyNowPrice": 425.00
+      }
+    },
+    {
+      "imageUrl": "https://images.trademe.co.nz/gaming-1.jpg",
+      "region": "Hamilton",
+      "title": "PlayStation 5 Console Bundle",
+      "prices": {
+        "isClassified": false,
+        "currentPrice": 750.00,
+        "buyNowPrice": 899.00
+      }
+    },
+    {
+      "imageUrl": "https://images.trademe.co.nz/camera-1.jpg",
+      "region": "Tauranga",
+      "title": "Canon EOS R6 Digital Camera",
+      "prices": {
+        "isClassified": false,
+        "currentPrice": 2400.00,
+        "buyNowPrice": 2699.99
+      }
+    },
+    {
+      "imageUrl": "https://images.trademe.co.nz/fashion-1.jpg",
+      "region": "Rotorua",
+      "title": "Designer Leather Handbag",
+      "prices": {
+        "isClassified": true,
+        "currentPrice": 200.00
+      }
+    },
+    {
+      "imageUrl": "https://images.trademe.co.nz/appliances-1.jpg",
+      "region": "Napier",
+      "title": "Dyson V15 Cordless Vacuum",
+      "prices": {
+        "isClassified": false,
+        "currentPrice": 1200.00,
+        "buyNowPrice": 1399.00
+      }
+    },
+    {
+      "imageUrl": "https://images.trademe.co.nz/collectibles-1.jpg",
+      "region": "Palmerston North",
+      "title": "Vintage Vinyl Record Player Collection",
+      "prices": {
+        "isClassified": false,
+        "currentPrice": 320.00,
+        "buyNowPrice": 399.99
+      }
+    },
+    {
+      "imageUrl": "https://images.trademe.co.nz/tools-1.jpg",
+      "region": "New Plymouth",
+      "title": "DeWalt Professional Power Drill Set",
+      "prices": {
+        "isClassified": true,
+        "currentPrice": 280.00
+      }
+    },
+    {
+      "imageUrl": "https://images.trademe.co.nz/jewelry-1.jpg",
+      "region": "Whangarei",
+      "title": "18K Gold Diamond Engagement Ring",
+      "prices": {
+        "isClassified": false,
+        "currentPrice": 3500.00,
+        "buyNowPrice": 4200.00
+      }
+    },
+    {
+      "imageUrl": "https://images.trademe.co.nz/pets-1.jpg",
+      "region": "Nelson",
+      "title": "Purebred Labrador Puppies",
+      "prices": {
+        "isClassified": true,
+        "currentPrice": 1200.00
+      }
+    },
+    {
+      "imageUrl": "https://images.trademe.co.nz/cars-1.jpg",
+      "region": "Invercargill",
+      "title": "2018 Honda Civic Sedan",
+      "prices": {
+        "isClassified": false,
+        "currentPrice": 18500.00,
+        "buyNowPrice": 21000.00
+      }
+    },
+    {
+      "imageUrl": "https://images.trademe.co.nz/shoes-1.jpg",
+      "region": "Timaru",
+      "title": "Nike Air Jordan Retro 11 Limited Edition",
+      "prices": {
+        "isClassified": false,
+        "currentPrice": 450.00,
+        "buyNowPrice": 550.00
+      }
+    },
+    {
+      "imageUrl": "https://images.trademe.co.nz/garden-1.jpg",
+      "region": "Westland",
+      "title": "Premium Garden Tool Set with Storage",
+      "prices": {
+        "isClassified": true,
+        "currentPrice": 180.00
+      }
+    },
+    {
+      "imageUrl": "https://images.trademe.co.nz/laptop-1.jpg",
+      "region": "Southland",
+      "title": "MacBook Pro 16\" M3 Pro Max",
+      "prices": {
+        "isClassified": false,
+        "currentPrice": 4299.00,
+        "buyNowPrice": 4799.00
+      }
+    },
+    {
+      "imageUrl": "https://images.trademe.co.nz/guitar-1.jpg",
+      "region": "Taranaki",
+      "title": "Fender Stratocaster Electric Guitar",
+      "prices": {
+        "isClassified": false,
+        "currentPrice": 950.00,
+        "buyNowPrice": 1150.00
+      }
+    },
+    {
+      "imageUrl": "https://images.trademe.co.nz/speakers-1.jpg",
+      "region": "Hawke's Bay",
+      "title": "Sony WH-1000XM5 Wireless Headphones",
+      "prices": {
+        "isClassified": false,
+        "currentPrice": 499.00,
+        "buyNowPrice": 599.99
+      }
+    },
+    {
+      "imageUrl": "https://images.trademe.co.nz/watch-1.jpg",
+      "region": "Waikato",
+      "title": "Rolex Submariner Stainless Steel",
+      "prices": {
+        "isClassified": false,
+        "currentPrice": 8500.00,
+        "buyNowPrice": 9800.00
+      }
+    },
+    {
+      "imageUrl": "https://images.trademe.co.nz/mattress-1.jpg",
+      "region": "Otago",
+      "title": "Premium Memory Foam Queen Bed Mattress",
+      "prices": {
+        "isClassified": true,
+        "currentPrice": 650.00
+      }
+    },
+    {
+      "imageUrl": "https://images.trademe.co.nz/coffee-1.jpg",
+      "region": "Bay of Plenty",
+      "title": "De'Longhi Automatic Espresso Machine",
+      "prices": {
+        "isClassified": false,
+        "currentPrice": 380.00,
+        "buyNowPrice": 450.00
+      }
+    },
+    {
+      "imageUrl": "https://images.trademe.co.nz/skateboard-1.jpg",
+      "region": "Manawatu-Wanganui",
+      "title": "Pro Level Skateboard Setup",
+      "prices": {
+        "isClassified": true,
+        "currentPrice": 220.00
+      }
+    },
+    {
+      "imageUrl": "https://images.trademe.co.nz/telescope-1.jpg",
+      "region": "Tasman",
+      "title": "Professional Astronomy Telescope",
+      "prices": {
+        "isClassified": false,
+        "currentPrice": 1850.00,
+        "buyNowPrice": 2200.00
+      }
+    },
+    {
+      "imageUrl": "https://images.trademe.co.nz/kitchen-1.jpg",
+      "region": "West Coast",
+      "title": "KitchenAid Stand Mixer with Attachments",
+      "prices": {
+        "isClassified": true,
+        "currentPrice": 520.00
+      }
+    },
+    {
+      "imageUrl": "https://images.trademe.co.nz/monitor-1.jpg",
+      "region": "Northland",
+      "title": "LG UltraWide 49\" Curved Gaming Monitor",
+      "prices": {
+        "isClassified": false,
+        "currentPrice": 1680.00,
+        "buyNowPrice": 1999.00
+      }
+    },
+    {
+      "imageUrl": "https://images.trademe.co.nz/drone-1.jpg",
+      "region": "Marlborough",
+      "title": "DJI Air 3S Drone with Accessories",
+      "prices": {
+        "isClassified": false,
+        "currentPrice": 1400.00,
+        "buyNowPrice": 1699.99
+      }
+    },
+    {
+      "imageUrl": "https://images.trademe.co.nz/tent-1.jpg",
+      "region": "Canterbury",
+      "title": "Coleman 6-Person Camping Tent",
+      "prices": {
+        "isClassified": true,
+        "currentPrice": 280.00
+      }
+    },
+    {
+      "imageUrl": "https://images.trademe.co.nz/laptop-bag-1.jpg",
+      "region": "Gisborne",
+      "title": "Samsonite Business Laptop Backpack",
+      "prices": {
+        "isClassified": false,
+        "currentPrice": 145.00,
+        "buyNowPrice": 180.00
+      }
+    },
+    {
+      "imageUrl": "https://images.trademe.co.nz/exercise-1.jpg",
+      "region": "Auckland",
+      "title": "Peloton Indoor Stationary Bike",
+      "prices": {
+        "isClassified": false,
+        "currentPrice": 2100.00
+      }
+    },
+    {
+      "imageUrl": "https://images.trademe.co.nz/mixer-1.jpg",
+      "region": "Wellington",
+      "title": "Pioneer DJM-900NXS2 Professional Mixer",
+      "prices": {
+        "isClassified": false,
+        "currentPrice": 1750.00,
+        "buyNowPrice": 2100.00
+      }
+    }
+  ]
+}
+
