@@ -1,8 +1,10 @@
 package com.myrium.trademeapp.di
 
 import com.google.gson.Gson
+import com.myrium.trademeapp.BuildConfig
 import com.myrium.trademeapp.network.ListingsApi
 import com.myrium.trademeapp.network.LocalListingsInterceptor
+import com.myrium.trademeapp.network.OAuth1PlaintextInterceptor
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -11,11 +13,32 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import javax.inject.Named
 import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
+
+    @Provides
+    @Named("oauthConsumerKey")
+    fun provideOAuthConsumerKey(): String = BuildConfig.TRADE_ME_CONSUMER_KEY
+
+    @Provides
+    @Named("oauthConsumerSecret")
+    fun provideOAuthConsumerSecret(): String = BuildConfig.TRADE_ME_CONSUMER_SECRET
+
+    @Provides
+    @Singleton
+    fun provideOAuth1PlaintextInterceptor(
+        @Named("oauthConsumerKey") consumerKey: String,
+        @Named("oauthConsumerSecret") consumerSecret: String,
+    ): OAuth1PlaintextInterceptor {
+        return OAuth1PlaintextInterceptor(
+            consumerKey = consumerKey,
+            consumerSecret = consumerSecret,
+        )
+    }
 
     @Provides
     @Singleton
@@ -30,10 +53,12 @@ object NetworkModule {
     fun provideOkHttpClient(
         localListingsInterceptor: LocalListingsInterceptor,
         loggingInterceptor: HttpLoggingInterceptor,
+        oAuth1PlaintextInterceptor: OAuth1PlaintextInterceptor,
     ): OkHttpClient {
         return OkHttpClient.Builder()
             .addInterceptor(loggingInterceptor)
-            .addInterceptor(localListingsInterceptor)
+            .addInterceptor(oAuth1PlaintextInterceptor)
+//            .addInterceptor(localListingsInterceptor)
             .build()
     }
 
@@ -41,7 +66,7 @@ object NetworkModule {
     @Singleton
     fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("https://trademehost/")
+            .baseUrl("https://api.tmsandbox.co.nz/v1/")
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create())
             .build()

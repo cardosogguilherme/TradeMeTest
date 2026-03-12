@@ -20,20 +20,31 @@ private fun ListingsResponse.toEntity(): ListingsEntity {
 }
 
 private fun ListingResponse.toEntity(): ListingEntity {
-    return if (prices.isClassified) {
+    val resolvedIsClassified = prices?.isClassified ?: isClassified ?: false
+    val resolvedCurrentPrice = prices?.currentPrice ?: if (resolvedIsClassified) {
+        rentPerWeek ?: startPrice ?: 0.0
+    } else {
+        startPrice ?: 0.0
+    }
+    val resolvedBuyNowPrice = prices?.buyNowPrice ?: buyNowPrice
+    val resolvedImageUrl = imageUrl.orEmpty()
+    val resolvedRegion = region.orEmpty()
+    val resolvedTitle = title.orEmpty()
+
+    return if (resolvedIsClassified) {
         ClassifiedListingEntity(
-            imageUrl = imageUrl,
-            region = region,
-            title = title,
-            askingPrice = prices.currentPrice
+            imageUrl = resolvedImageUrl,
+            region = resolvedRegion,
+            title = resolvedTitle,
+            askingPrice = resolvedCurrentPrice
         )
     } else {
         AuctionListingEntity(
-            imageUrl = imageUrl,
-            region = region,
-            title = title,
-            currentPrice = prices.currentPrice,
-            buyNowPrice = prices.buyNowPrice
+            imageUrl = resolvedImageUrl,
+            region = resolvedRegion,
+            title = resolvedTitle,
+            currentPrice = resolvedCurrentPrice,
+            buyNowPrice = resolvedBuyNowPrice
         )
     }
 }

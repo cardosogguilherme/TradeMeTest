@@ -15,8 +15,9 @@ class LocalListingsInterceptor @Inject constructor(
 ) : Interceptor {
 
     private companion object {
-        const val MOCK_HOST = "trademehost"
-        const val MOCK_PATH = "/latestlistings"
+        //https://api.tmsandbox.co.nz/v1/listings/latest.json
+        const val MOCK_HOST = "api.tmsandbox.co.nz/v1/"
+        const val MOCK_PATH = "/listings/latest.json"
         const val MOCK_METHOD = "GET"
     }
 
@@ -31,7 +32,7 @@ class LocalListingsInterceptor @Inject constructor(
         }
 
         return try {
-            val json = context.assets.open("listingsResponse.json")
+            val json = context.assets.open("realResponseListings.json")
                 .bufferedReader()
                 .use { it.readText() }
 
@@ -44,7 +45,7 @@ class LocalListingsInterceptor @Inject constructor(
                 .body(json.toResponseBody("application/json".toMediaType()))
                 .build()
         } catch (exception: IOException) {
-            val fallback = "{\"error\":\"Unable to read listingsResponse.json\"}"
+            val fallback = "{\"error\":\"Unable to read realResponseListings.json\"}"
             Response.Builder()
                 .request(request)
                 .protocol(Protocol.HTTP_1_1)

@@ -5,7 +5,7 @@ import retrofit2.Response
 import retrofit2.http.GET
 
 interface ListingsApi {
-    @GET("latestlistings")
+    @GET("listings/latest.json")
     suspend fun getListings(): Response<ResponseBody>
 }
 

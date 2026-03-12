@@ -1,3 +1,16 @@
+import java.util.Properties
+
+val localProperties = Properties().apply {
+    val localPropertiesFile = rootProject.file("local.properties")
+    if (localPropertiesFile.exists()) {
+        localPropertiesFile.inputStream().use { load(it) }
+    }
+}
+
+fun localProperty(name: String): String {
+    return localProperties.getProperty(name, "").replace("\"", "\\\"")
+}
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
@@ -20,6 +33,9 @@ android {
         versionCode = 1
         versionName = "1.0"
 
+        buildConfigField("String", "TRADE_ME_CONSUMER_KEY", "\"${localProperty("TRADE_ME_CONSUMER_KEY")}\"")
+        buildConfigField("String", "TRADE_ME_CONSUMER_SECRET", "\"${localProperty("TRADE_ME_CONSUMER_SECRET")}\"")
+
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -38,6 +54,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
 }
 
@@ -52,6 +69,7 @@ dependencies {
     implementation(libs.androidx.compose.ui.tooling)
     implementation(libs.androidx.compose.material3)
     implementation(libs.androidx.compose.material3.adaptive.navigation.suite)
+    implementation(libs.coil.compose)
 
     // Hilt
     implementation(libs.hilt.android)

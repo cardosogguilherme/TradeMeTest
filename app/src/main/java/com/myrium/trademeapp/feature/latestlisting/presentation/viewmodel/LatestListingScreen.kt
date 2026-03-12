@@ -2,12 +2,13 @@ package com.myrium.trademeapp.feature.latestlisting.presentation.viewmodel
 
 import android.widget.Toast
 import androidx.activity.compose.LocalActivity
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.requiredHeightIn
@@ -15,6 +16,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Text
 import androidx.compose.material3.pulltorefresh.PullToRefreshBox
 import androidx.compose.runtime.LaunchedEffect
@@ -27,6 +29,7 @@ import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -39,6 +42,8 @@ import com.myrium.trademeapp.R
 import com.myrium.trademeapp.feature.latestlisting.ListingStatePreviewProvider
 import com.myrium.trademeapp.ui.theme.TradeMeAppTheme
 import com.myrium.trademeapp.ui.theme.getTradeMeColors
+import coil.compose.AsyncImage
+import com.myrium.trademeapp.ui.util.PlaceholderScreen
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlin.random.Random.Default.nextBoolean
 
@@ -78,20 +83,35 @@ fun LatestListingScreen(
             }
     }
 
-    PullToRefreshBox(
-        isRefreshing = state is LatestListingState.Loading,
-        onRefresh = onRefresh,
-        modifier = modifier,
-    ) {
-        if (state is LatestListingState.Success) {
-            LazyColumn(state = listState) {
+    when(state) {
+        is LatestListingState.Loading -> {
+            Box(
+                modifier = modifier.fillMaxSize(),
+                contentAlignment = Alignment.Center
+            ) {
+                CircularProgressIndicator()
+            }
+        }
+        is LatestListingState.Error -> {
+            PlaceholderScreen(modifier = modifier, text = "Error loading listings. Pull to refresh.")
+        }
+        is LatestListingState.Success -> {
+            PullToRefreshBox(
+                isRefreshing = false,
+                onRefresh = onRefresh,
+                modifier = modifier,
+            ) {
+                LazyColumn(modifier = Modifier.fillMaxSize(),
+                    state = listState
+                ) {
 
-                items(state.listings.listings.size) { index ->
-                    val activity = LocalActivity.current
-                    LatestListingItem(item = state.listings.listings[index]) {
-                        Toast
-                            .makeText(activity, "Clicked on ${state.listings.listings[index].title}", Toast.LENGTH_SHORT)
-                            .show()
+                    items(state.listings.listings.size) { index ->
+                        val activity = LocalActivity.current
+                        LatestListingItem(item = state.listings.listings[index]) {
+                            Toast
+                                .makeText(activity, "Clicked on ${state.listings.listings[index].title}", Toast.LENGTH_SHORT)
+                                .show()
+                        }
                     }
                 }
             }
@@ -108,9 +128,13 @@ fun LatestListingItem(item: ListingState, onClick: () -> Unit) {
             .padding(horizontal = 12.dp, vertical = 8.dp)
             .clickable(onClick = onClick)
     ) {
-        Image(
-            painter = painterResource(R.drawable.ic_launcher_foreground),
+        AsyncImage(
+            model = item.imageUrl,
             contentDescription = "Listing Image",
+            placeholder = painterResource(R.drawable.ic_launcher_foreground),
+            error = painterResource(R.drawable.ic_launcher_foreground),
+            fallback = painterResource(R.drawable.ic_launcher_foreground),
+            contentScale = ContentScale.Crop,
             modifier = Modifier
                 .clip(RoundedCornerShape(4.dp))
                 .background(getTradeMeColors().feijoa500)
